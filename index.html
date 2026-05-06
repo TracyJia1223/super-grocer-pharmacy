@@ -27,12 +27,12 @@
     body { font-family: 'Inter', sans-serif; color: var(--gray-800); line-height: 1.6; }
 
     /* ── TOP BAR ── */
-    .top-bar { background: var(--green-dark); color: rgba(255,255,255,0.82); font-size: 0.76rem; padding: 0.4rem 1.5rem; }
+    .top-bar { background: var(--green-pale); border-bottom: 1px solid rgba(45,138,45,0.15); font-size: 0.76rem; padding: 0.4rem 1.5rem; }
     .top-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; }
     .top-bar-items { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
-    .top-bar-item { display: flex; align-items: center; gap: 0.35rem; color: rgba(255,255,255,0.82); }
+    .top-bar-item { display: flex; align-items: center; gap: 0.35rem; color: var(--green-dark); }
     .top-bar-item svg { width: 12px; height: 12px; flex-shrink: 0; }
-    .top-bar-badge { font-size: 0.74rem; font-weight: 700; color: #fff; letter-spacing: 0.05em; white-space: nowrap; }
+    .top-bar-badge { font-size: 0.74rem; font-weight: 700; color: var(--green-dark); letter-spacing: 0.05em; white-space: nowrap; }
 
     /* ── SITE HEADER WRAP (sticky) ── */
     .site-header-wrap { position: sticky; top: 0; z-index: 100; }
@@ -104,9 +104,9 @@
     .why-body p { font-size: 0.875rem; color: var(--gray-500); line-height: 1.65; }
 
     /* ── CONVERSION ── */
-    .conversion-sec { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%); color: var(--white); text-align: center; padding: 5rem 1.5rem; }
-    .conversion-sec .sec-title { color: var(--white); text-shadow: 0 1px 3px rgba(0,0,0,0.25); }
-    .conversion-sec .sec-sub { color: rgba(255,255,255,0.78); margin: 0 auto 2.5rem; }
+    .conversion-sec { background: var(--green-pale); border-top: 1px solid rgba(45,138,45,0.15); border-bottom: 1px solid rgba(45,138,45,0.15); color: var(--gray-800); text-align: center; padding: 5rem 1.5rem; }
+    .conversion-sec .sec-title { color: var(--gray-800); }
+    .conversion-sec .sec-sub { color: var(--gray-600); margin: 0 auto 2.5rem; }
 
     /* ── TESTIMONIALS ── */
     .test-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
@@ -395,10 +395,10 @@
 
   <section class="conversion-sec">
     <div class="inner">
-      <div class="sec-label" style="color:rgba(255,255,255,0.55)">Switch &amp; Save</div>
+      <div class="sec-label">Switch &amp; Save</div>
       <h2 class="sec-title">Save More on Every Prescription</h2>
       <p class="sec-sub">Switching is easy. Our low dispensing fees mean you keep more money on every prescription, without compromising on care.</p>
-      <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[1])},80)" class="btn btn-white btn-lg">Transfer My Prescription</a>
+      <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[1])},80)" class="btn btn-primary btn-lg">Transfer My Prescription</a>
     </div>
   </section>
 
