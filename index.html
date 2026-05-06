@@ -240,8 +240,10 @@
       .photo-strip-item img { height: 180px; }
       nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.08); flex-direction: column; align-items: flex-start; gap: 0; z-index: 99; }
       nav.open { display: flex; }
-      nav a { font-size: 1rem; padding: 0.75rem 0; border-radius: 0; width: 100%; border-bottom: 1px solid var(--border); }
+      nav a { font-size: 1rem; padding: 0.75rem 0 0.75rem 0.85rem; border-radius: 0; width: 100%; border-bottom: 1px solid var(--border); border-left: 3px solid transparent; }
       nav a:last-child { border-bottom: none; }
+      nav a::after { display: none; }
+      nav a.active { border-left-color: var(--green); background: var(--green-pale); font-weight: 700; }
       .hamburger { display: flex; }
       .header-cta-btn { display: none; }
       .sec { padding: 3rem 1.25rem; }
