@@ -110,9 +110,12 @@
     .why-body p { font-size: 0.875rem; color: var(--gray-500); line-height: 1.65; }
 
     /* ── CONVERSION ── */
-    .conversion-sec { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); color: var(--gray-800); text-align: center; padding: 6rem 1.5rem; }
-    .conversion-sec .sec-title { color: var(--gray-800); }
-    .conversion-sec .sec-sub { color: var(--gray-600); margin: 0 auto 2.5rem; }
+    .conversion-sec { background: #F7FAF9; border-top: 1px solid #DDE8E4; border-bottom: 1px solid #DDE8E4; color: var(--gray-800); text-align: center; padding: 7rem 1.5rem; }
+    .conversion-sec .sec-title { color: var(--green); letter-spacing: -0.03em; }
+    .conversion-sec .sec-sub { color: var(--gray-600); margin: 0 auto 3rem; }
+    .conversion-frame { max-width: 560px; margin: 0 auto; border: 1.5px dashed rgba(45,138,45,0.22); border-radius: 24px; padding: 2.75rem 2.5rem; }
+    .conversion-sec .btn-primary { box-shadow: 0 4px 16px rgba(45,90,67,0.28); }
+    .conversion-sec .btn-primary:hover { box-shadow: 0 6px 20px rgba(45,90,67,0.38); }
 
     /* ── TESTIMONIALS ── */
     .test-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
@@ -401,10 +404,12 @@
 
   <section class="conversion-sec">
     <div class="inner">
-      <div class="sec-label">Switch &amp; Save</div>
-      <h2 class="sec-title">Save More on Every Prescription</h2>
-      <p class="sec-sub">Switching is easy. Our low dispensing fees mean you keep more money on every prescription, without compromising on care.</p>
-      <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[1])},80)" class="btn btn-primary btn-lg">Transfer My Prescription</a>
+      <div class="conversion-frame">
+        <div class="sec-label">Switch &amp; Save</div>
+        <h2 class="sec-title">Save More on Every Prescription</h2>
+        <p class="sec-sub">Switching is easy. Our low dispensing fees mean you keep more money on every prescription, without compromising on care.</p>
+        <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[1])},80)" class="btn btn-primary btn-lg">Transfer My Prescription</a>
+      </div>
     </div>
   </section>
 
