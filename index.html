@@ -247,8 +247,8 @@
       .top-bar-items { gap: 0.75rem; }
       .top-bar-item { font-size: 0.72rem; }
       .top-bar-badge { font-size: 0.68rem; }
-      .top-bar-address { width: 100%; justify-content: center; font-size: 0.72rem; order: 2; }
-      .top-bar-badge { order: 1; }
+      .top-bar-address { font-size: 0.72rem; order: 1; }
+      .top-bar-badge { order: 2; width: 100%; text-align: center; }
       .photo-strip { grid-template-columns: 1fr; }
       .photo-strip-item img { height: 180px; }
       nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.08); flex-direction: column; align-items: flex-start; gap: 0; z-index: 99; }
@@ -349,7 +349,7 @@
     <div class="hero-inner">
       <div class="hero-badge">&#10022; Steveston, Richmond BC</div>
       <h1>Trusted Pharmacy Care in <em>Steveston</em><br>Since <em>1994</em></h1>
-      <p id="hero-sub" style="min-height:3em;"></p>
+      <p>Low dispensing fees, fast service, and personalized care — right in your neighbourhood.</p>
       <div class="hero-ctas">
         <a onclick="showPage('prescriptions')" class="btn btn-warm btn-lg">Refill Prescription</a>
         <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[1])},80)" class="btn btn-outline btn-lg">Transfer Prescription</a>
@@ -893,16 +893,6 @@
   }, {threshold: 0.5});
   document.querySelectorAll('[data-target]').forEach(function(el) { countObserver.observe(el); });
 
-  (function() {
-    var el = document.getElementById('hero-sub');
-    if (!el) return;
-    var text = 'Low dispensing fees, fast service, and personalized care — right in your neighbourhood.';
-    var i = 0;
-    function type() {
-      if (i <= text.length) { el.textContent = text.slice(0, i); i++; setTimeout(type, 38); }
-    }
-    setTimeout(type, 700);
-  })();
 </script>
 </body>
 </html>
