@@ -66,12 +66,12 @@
     /* ── HERO ── */
     .hero { background: linear-gradient(to right, rgba(27,98,27,0.18) 0%, rgba(45,138,45,0.06) 18%, transparent 32%, transparent 68%, rgba(45,138,45,0.06) 82%, rgba(27,98,27,0.18) 100%), linear-gradient(rgba(255,255,255,0.94), rgba(242,250,242,0.96)), url('images/hero-bg.jpg') center/cover no-repeat; color: var(--gray-800); padding: 5.5rem 1.5rem; text-align: center; }
     .hero-inner { max-width: 720px; margin: 0 auto; }
-    @keyframes badgePulse {
-      0%   { box-shadow: 0 0 0 0 rgba(45,138,45,0.45); transform: scale(1); }
-      50%  { box-shadow: 0 0 0 7px rgba(45,138,45,0); transform: scale(1.04); }
-      100% { box-shadow: 0 0 0 0 rgba(45,138,45,0); transform: scale(1); }
+    @keyframes badgeBounce {
+      0%, 100% { transform: translateY(0); }
+      40%       { transform: translateY(-6px); }
+      60%       { transform: translateY(-3px); }
     }
-    .hero-badge { display: inline-block; background: var(--green-pale); color: var(--green); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; border: 1px solid rgba(45,138,45,0.35); animation: badgePulse 2.4s ease-in-out infinite; }
+    .hero-badge { display: inline-block; background: var(--green-pale); color: var(--green); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; border: 1px solid rgba(45,138,45,0.35); animation: badgeBounce 2.2s ease-in-out infinite; }
     .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.25rem; letter-spacing: -0.04em; color: var(--gray-800); }
     .hero h1 em { color: var(--green); font-style: normal; }
     .hero p { font-size: 1.05rem; color: var(--gray-600); margin-bottom: 2.5rem; line-height: 1.75; }
