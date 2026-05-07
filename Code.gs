@@ -7,6 +7,13 @@ var SPREADSHEET_ID  = '1cburRYkFqfup3dgX7MnXTWZZC4aFu4u0CLonMkCdRaU';
 var DRIVE_FOLDER_ID = '1jKXu1O2wz0Ku8r5cwplnCUEQ-y1aBvxo';
 var NOTIFY_EMAIL    = 'tracy.jia1223@gmail.com';
 
+// Tab GIDs — stable even if tabs are renamed
+var SHEET_GID = {
+  contact  : 0,
+  transfer : 1671050477,
+  refill   : 1300104817
+};
+
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
@@ -28,8 +35,7 @@ function doPost(e) {
     var sheet, row, subject, body;
 
     if (data.formType === 'refill') {
-      sheet = getOrCreate(ss, 'Refill',
-        ['Timestamp','First Name','Last Name','Phone','Email','Prescription Info','Attachment']);
+      sheet = ss.getSheetById(SHEET_GID.refill);
       row     = [ts, data.firstName, data.lastName, data.phone, data.email || '', data.prescription, attachUrl];
       subject = '[Super Grocer Pharmacy] Refill Request – ' + data.firstName + ' ' + data.lastName;
       body    = fmt('Refill Prescription Request', {
@@ -41,8 +47,7 @@ function doPost(e) {
       }, ts);
 
     } else if (data.formType === 'transfer') {
-      sheet = getOrCreate(ss, 'Transfer',
-        ['Timestamp','First Name','Last Name','Phone','Email','Current Pharmacy','Prescription Info','Attachment']);
+      sheet = ss.getSheetById(SHEET_GID.transfer);
       row     = [ts, data.firstName, data.lastName, data.phone, data.email || '', data.currentPharmacy, data.prescription, attachUrl];
       subject = '[Super Grocer Pharmacy] Transfer Request – ' + data.firstName + ' ' + data.lastName;
       body    = fmt('Transfer Prescription Request', {
@@ -55,8 +60,7 @@ function doPost(e) {
       }, ts);
 
     } else if (data.formType === 'contact') {
-      sheet = getOrCreate(ss, 'Contact',
-        ['Timestamp','First Name','Last Name','Phone','Email','Message']);
+      sheet = ss.getSheetById(SHEET_GID.contact);
       row     = [ts, data.firstName, data.lastName, data.phone || '', data.email, data.message];
       subject = '[Super Grocer Pharmacy] Contact Message – ' + data.firstName + ' ' + data.lastName;
       body    = fmt('Contact Form', {
@@ -86,18 +90,6 @@ function doPost(e) {
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────
-
-function getOrCreate(ss, name, headers) {
-  var sheet = ss.getSheetByName(name);
-  if (!sheet) {
-    sheet = ss.insertSheet(name);
-    sheet.appendRow(headers);
-    sheet.getRange(1, 1, 1, headers.length)
-      .setFontWeight('bold')
-      .setBackground('#E8F5E9');
-  }
-  return sheet;
-}
 
 function fmt(title, fields, ts) {
   var lines = title + '\n' + Array(42).join('─') + '\n\n';
