@@ -727,11 +727,82 @@
     if (el) el.classList.add('active');
   }
 
-  function handleSubmit(e, type) {
+  // ── Replace this URL after deploying Code.gs as a Web App ───────────────
+  var SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+
+  var SUCCESS_MSG = {
+    refill   : 'Thank you! Your refill request has been received. We will contact you shortly.',
+    transfer : 'Thank you! Your transfer request has been received. We will be in touch soon.',
+    contact  : 'Thank you for your message. We will get back to you as soon as possible.'
+  };
+
+  async function handleSubmit(e, type) {
     e.preventDefault();
-    var msg = {refill:'Thank you! Your refill request has been received. We will contact you shortly.',transfer:'Thank you! Your transfer request has been received. We will be in touch soon.',contact:'Thank you for your message. We will get back to you as soon as possible.'};
-    alert(msg[type]);
-    e.target.reset();
+    var form = e.target;
+    var btn  = form.querySelector('[type="submit"]');
+    var orig = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      // Collect text fields (exclude file inputs)
+      var fields = Array.from(form.querySelectorAll('input:not([type="file"]), textarea, select'));
+      var data = { formType: type };
+
+      if (type === 'refill') {
+        data.firstName   = fields[0].value.trim();
+        data.lastName    = fields[1].value.trim();
+        data.phone       = fields[2].value.trim();
+        data.email       = fields[3].value.trim();
+        data.prescription = fields[4].value.trim();
+      } else if (type === 'transfer') {
+        data.firstName      = fields[0].value.trim();
+        data.lastName       = fields[1].value.trim();
+        data.phone          = fields[2].value.trim();
+        data.email          = fields[3].value.trim();
+        data.currentPharmacy = fields[4].value.trim();
+        data.prescription   = fields[5].value.trim();
+      } else if (type === 'contact') {
+        data.firstName = fields[0].value.trim();
+        data.lastName  = fields[1].value.trim();
+        data.phone     = fields[2].value.trim();
+        data.email     = fields[3].value.trim();
+        data.message   = fields[4].value.trim();
+      }
+
+      // File upload (convert to base64)
+      var fileInput = form.querySelector('input[type="file"]');
+      if (fileInput && fileInput.files[0]) {
+        var f = fileInput.files[0];
+        data.fileData = await toBase64(f);
+        data.fileName = f.name;
+        data.fileType = f.type || 'application/octet-stream';
+      }
+
+      // Fire-and-forget to Apps Script (no-cors = can't read response, that's fine)
+      fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
+
+      setTimeout(function() {
+        alert(SUCCESS_MSG[type]);
+        form.reset();
+        btn.textContent = orig;
+        btn.disabled = false;
+      }, 800);
+
+    } catch (err) {
+      btn.textContent = orig;
+      btn.disabled = false;
+      alert('Something went wrong. Please call us at (604) 274-7878.');
+    }
+  }
+
+  function toBase64(file) {
+    return new Promise(function(resolve, reject) {
+      var r = new FileReader();
+      r.onload  = function() { resolve(r.result.split(',')[1]); };
+      r.onerror = reject;
+      r.readAsDataURL(file);
+    });
   }
 
   var fadeObserver = new IntersectionObserver(function(entries) {
