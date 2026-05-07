@@ -5,7 +5,7 @@
 
 var SPREADSHEET_ID  = '1cburRYkFqfup3dgX7MnXTWZZC4aFu4u0CLonMkCdRaU';
 var DRIVE_FOLDER_ID = '1jKXu1O2wz0Ku8r5cwplnCUEQ-y1aBvxo';
-var NOTIFY_EMAIL    = 'tracy.jia1223@gmail.com';
+var NOTIFY_EMAIL    = 'jerryzedm@gmail.com';
 
 // Tab GIDs — stable even if tabs are renamed
 var SHEET_GID = {
