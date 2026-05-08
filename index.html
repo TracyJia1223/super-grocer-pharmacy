@@ -337,7 +337,7 @@
         <a onclick="showPage('vaccinations')" class="nav-link" data-page="vaccinations">Vaccinations</a>
         <a onclick="showPage('home');goToContact()" class="nav-link" data-page="contact">Contact</a>
       </nav>
-      <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[1])},80)" class="btn btn-warm header-cta-btn">Transfer Prescription</a>
+      <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[0])},80)" class="btn btn-warm header-cta-btn">Transfer Prescription</a>
     </div>
   </header>
 </div>
@@ -351,7 +351,7 @@
       <h1>Trusted Pharmacy Care in <em>Steveston</em><br>Since <em>1994</em></h1>
       <p>Low dispensing fees, fast service, and personalized care — right in your neighbourhood.</p>
       <div class="hero-ctas">
-        <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[1])},80)" class="btn btn-warm btn-lg">Transfer Prescription</a>
+        <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[0])},80)" class="btn btn-warm btn-lg">Transfer Prescription</a>
         <a onclick="showPage('prescriptions')" class="btn btn-outline btn-lg">Refill Prescription</a>
       </div>
     </div>
@@ -457,7 +457,7 @@
       <div class="sec-label">Switch &amp; Save</div>
       <h2 class="sec-title">Save More on Every Prescription</h2>
       <p class="sec-sub">Switching is easy. Our low dispensing fees mean you keep more money on every prescription, without compromising on care.</p>
-      <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[1])},80)" class="btn btn-primary btn-lg">Transfer My Prescription</a>
+      <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[0])},80)" class="btn btn-primary btn-lg">Transfer My Prescription</a>
     </div>
   </section>
 
@@ -582,11 +582,11 @@
       <div class="sec-head center">
         <div class="sec-label">Prescriptions</div>
         <h2 class="sec-title">Prescription Services</h2>
-        <p class="sec-sub">Save more with our low dispensing fees. Refill or transfer your prescription below.</p>
+        <p class="sec-sub">Save more with our low dispensing fees. Transfer or refill your prescription below.</p>
       </div>
       <div class="rx-features">
-        <div class="rx-feat"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>Refills</div>
         <div class="rx-feat"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>Transfers</div>
+        <div class="rx-feat"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>Refills</div>
         <div class="rx-feat"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>Medication Reviews</div>
         <div class="rx-feat"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>Blister Packaging</div>
         <div class="rx-feat"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>Free Delivery</div>
@@ -594,23 +594,10 @@
       </div>
       <div class="form-card">
         <div class="form-tabs" style="max-width:none;margin:0 0 2rem 0;">
-          <button class="form-tab active" onclick="switchTab('refill',this)">Refill Prescription</button>
-          <button class="form-tab" onclick="switchTab('transfer',this)">Transfer Prescription</button>
+          <button class="form-tab active" onclick="switchTab('transfer',this)">Transfer Prescription</button>
+          <button class="form-tab" onclick="switchTab('refill',this)">Refill Prescription</button>
         </div>
-        <div class="form-panel active" id="panel-refill" style="max-width:none;margin:0;">
-          <form onsubmit="handleSubmit(event,'refill')">
-            <div class="form-grid">
-              <div class="fg"><label>First Name *</label><input type="text" placeholder="Jane" required></div>
-              <div class="fg"><label>Last Name *</label><input type="text" placeholder="Smith" required></div>
-              <div class="fg"><label>Phone Number * <span class="note" style="font-weight:400;">(cell preferred)</span></label><input type="tel" placeholder="(604) 555-0100" required></div>
-              <div class="fg"><label>Email</label><input type="email" placeholder="jane@email.com"></div>
-              <div class="fg full"><label>Prescription Number(s) or Medication Name(s) *</label><textarea placeholder="e.g. RX#123456, Metformin 500mg…" required></textarea></div>
-              <div class="fg full"><label>Upload Prescription Label (optional)</label><input type="file" accept="image/*,.pdf"></div>
-            </div>
-            <div class="form-submit"><button type="submit" class="btn btn-primary btn-lg">Submit Refill Request</button></div>
-          </form>
-        </div>
-        <div class="form-panel" id="panel-transfer" style="max-width:none;margin:0;">
+        <div class="form-panel active" id="panel-transfer" style="max-width:none;margin:0;">
           <form onsubmit="handleSubmit(event,'transfer')">
             <div class="form-grid">
               <div class="fg"><label>First Name *</label><input type="text" placeholder="Jane" required></div>
@@ -622,6 +609,19 @@
               <div class="fg full"><label>Upload Prescription / Label (optional)</label><input type="file" accept="image/*,.pdf"></div>
             </div>
             <div class="form-submit"><button type="submit" class="btn btn-primary btn-lg">Submit Transfer Request</button></div>
+          </form>
+        </div>
+        <div class="form-panel" id="panel-refill" style="max-width:none;margin:0;">
+          <form onsubmit="handleSubmit(event,'refill')">
+            <div class="form-grid">
+              <div class="fg"><label>First Name *</label><input type="text" placeholder="Jane" required></div>
+              <div class="fg"><label>Last Name *</label><input type="text" placeholder="Smith" required></div>
+              <div class="fg"><label>Phone Number * <span class="note" style="font-weight:400;">(cell preferred)</span></label><input type="tel" placeholder="(604) 555-0100" required></div>
+              <div class="fg"><label>Email</label><input type="email" placeholder="jane@email.com"></div>
+              <div class="fg full"><label>Prescription Number(s) or Medication Name(s) *</label><textarea placeholder="e.g. RX#123456, Metformin 500mg…" required></textarea></div>
+              <div class="fg full"><label>Upload Prescription Label (optional)</label><input type="file" accept="image/*,.pdf"></div>
+            </div>
+            <div class="form-submit"><button type="submit" class="btn btn-primary btn-lg">Submit Refill Request</button></div>
           </form>
         </div>
       </div>
@@ -695,8 +695,8 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul class="footer-links">
-          <li><a onclick="showPage('prescriptions')">Refill Prescription</a></li>
-          <li><a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[1])},80)">Transfer Prescription</a></li>
+          <li><a onclick="showPage('prescriptions')">Transfer Prescription</a></li>
+          <li><a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('refill',document.querySelectorAll('.form-tab')[1])},80)">Refill Prescription</a></li>
           <li><a onclick="showPage('vaccinations')">Vaccinations</a></li>
           <li><a onclick="showPage('prescribing')">Minor Ailments &amp; Birth Control</a></li>
           <li><a onclick="showPage('prescriptions')">Free Delivery</a></li>
