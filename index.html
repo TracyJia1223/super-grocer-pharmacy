@@ -337,7 +337,7 @@
         <a onclick="showPage('vaccinations')" class="nav-link" data-page="vaccinations">Vaccinations</a>
         <a onclick="showPage('home');goToContact()" class="nav-link" data-page="contact">Contact</a>
       </nav>
-      <a onclick="showPage('prescriptions')" class="btn btn-warm header-cta-btn">Refill Prescription</a>
+      <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[1])},80)" class="btn btn-warm header-cta-btn">Transfer Prescription</a>
     </div>
   </header>
 </div>
@@ -351,8 +351,8 @@
       <h1>Trusted Pharmacy Care in <em>Steveston</em><br>Since <em>1994</em></h1>
       <p>Low dispensing fees, fast service, and personalized care — right in your neighbourhood.</p>
       <div class="hero-ctas">
-        <a onclick="showPage('prescriptions')" class="btn btn-warm btn-lg">Refill Prescription</a>
-        <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[1])},80)" class="btn btn-outline btn-lg">Transfer Prescription</a>
+        <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[1])},80)" class="btn btn-warm btn-lg">Transfer Prescription</a>
+        <a onclick="showPage('prescriptions')" class="btn btn-outline btn-lg">Refill Prescription</a>
       </div>
     </div>
   </section>
@@ -365,6 +365,29 @@
       <div class="trust-item"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>Renewed commitment to our customers</div>
     </div>
   </div>
+
+  <section class="sec sec-white">
+    <div class="inner">
+      <div class="sec-head center">
+        <div class="sec-label">Patient Reviews</div>
+        <h2 class="sec-title">What Our Customers Say</h2>
+        <div style="display:inline-flex;align-items:center;gap:0.6rem;background:var(--green-pale);border:1px solid rgba(45,138,45,0.2);border-radius:100px;padding:0.5rem 1.1rem;margin-top:0.75rem;">
+          <span style="color:#F59E0B;font-size:1rem;letter-spacing:2px;">★★★★★</span>
+          <span style="font-size:0.9rem;font-weight:600;color:var(--green);">5.0 on Google</span>
+          <span style="color:var(--gray-200);">|</span>
+          <a href="https://share.google/b1Xjb6FOACUCutwde" target="_blank" rel="noopener" style="font-size:0.85rem;font-weight:600;color:var(--green);text-decoration:none;display:flex;align-items:center;gap:0.3rem;">Read all reviews <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
+        </div>
+      </div>
+      <div class="test-grid">
+        <div class="test-card fade-up delay-1"><div class="stars">★★★★★</div><p class="test-text">"Just had my Flu shot and COVID booster here. The gentleman who administered my shots was so precise that I didn't even feel them. If you have needle anxiety, this is the place to go. Front desk staff were very friendly and efficient too."</p><div class="test-author">Devon Scott</div><div class="test-meta">Local Guide · Google Review</div></div>
+        <div class="test-card fade-up delay-2"><div class="stars">★★★★★</div><p class="test-text">"Outstanding service from caring and knowledgeable staff."</p><div class="test-author">Jackie Bulmer</div><div class="test-meta">Local Guide · Google Review</div></div>
+        <div class="test-card fade-up delay-3"><div class="stars">★★★★★</div><p class="test-text">"Very polite and very helpful to customers!"</p><div class="test-author">Rico Santiago</div><div class="test-meta">Local Guide · Google Review</div></div>
+      </div>
+      <div style="text-align:center;margin-top:2rem;">
+        <a href="https://share.google/b1Xjb6FOACUCutwde" target="_blank" rel="noopener" class="btn btn-outline">See All Google Reviews &nbsp;&#x2197;&#xFE0E;</a>
+      </div>
+    </div>
+  </section>
 
   <section class="sec sec-gray">
     <div class="inner">
@@ -435,29 +458,6 @@
       <h2 class="sec-title">Save More on Every Prescription</h2>
       <p class="sec-sub">Switching is easy. Our low dispensing fees mean you keep more money on every prescription, without compromising on care.</p>
       <a onclick="showPage('prescriptions');setTimeout(()=>{switchTab('transfer',document.querySelectorAll('.form-tab')[1])},80)" class="btn btn-primary btn-lg">Transfer My Prescription</a>
-    </div>
-  </section>
-
-  <section class="sec sec-white">
-    <div class="inner">
-      <div class="sec-head center">
-        <div class="sec-label">Patient Reviews</div>
-        <h2 class="sec-title">What Our Customers Say</h2>
-        <div style="display:inline-flex;align-items:center;gap:0.6rem;background:var(--green-pale);border:1px solid rgba(45,138,45,0.2);border-radius:100px;padding:0.5rem 1.1rem;margin-top:0.75rem;">
-          <span style="color:#F59E0B;font-size:1rem;letter-spacing:2px;">★★★★★</span>
-          <span style="font-size:0.9rem;font-weight:600;color:var(--green);">5.0 on Google</span>
-          <span style="color:var(--gray-200);">|</span>
-          <a href="https://share.google/b1Xjb6FOACUCutwde" target="_blank" rel="noopener" style="font-size:0.85rem;font-weight:600;color:var(--green);text-decoration:none;display:flex;align-items:center;gap:0.3rem;">Read all reviews <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
-        </div>
-      </div>
-      <div class="test-grid">
-        <div class="test-card fade-up delay-1"><div class="stars">★★★★★</div><p class="test-text">"Just had my Flu shot and COVID booster here. The gentleman who administered my shots was so precise that I didn't even feel them. If you have needle anxiety, this is the place to go. Front desk staff were very friendly and efficient too."</p><div class="test-author">Devon Scott</div><div class="test-meta">Local Guide · Google Review</div></div>
-        <div class="test-card fade-up delay-2"><div class="stars">★★★★★</div><p class="test-text">"Outstanding service from caring and knowledgeable staff."</p><div class="test-author">Jackie Bulmer</div><div class="test-meta">Local Guide · Google Review</div></div>
-        <div class="test-card fade-up delay-3"><div class="stars">★★★★★</div><p class="test-text">"Very polite and very helpful to customers!"</p><div class="test-author">Rico Santiago</div><div class="test-meta">Local Guide · Google Review</div></div>
-      </div>
-      <div style="text-align:center;margin-top:2rem;">
-        <a href="https://share.google/b1Xjb6FOACUCutwde" target="_blank" rel="noopener" class="btn btn-outline">See All Google Reviews &nbsp;&#x2197;&#xFE0E;</a>
-      </div>
     </div>
   </section>
 
