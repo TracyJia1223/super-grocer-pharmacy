@@ -3,15 +3,15 @@
 //         Type: Web app | Execute as: Me | Who has access: Anyone
 // ─────────────────────────────────────────────────────────────────────────
 
-var SPREADSHEET_ID  = '1cburRYkFqfup3dgX7MnXTWZZC4aFu4u0CLonMkCdRaU';
-var DRIVE_FOLDER_ID = '1jKXu1O2wz0Ku8r5cwplnCUEQ-y1aBvxo';
-var NOTIFY_EMAIL    = 'jerryzedm@gmail.com';
+var SPREADSHEET_ID  = '1t2t3cfdShg7taFiL_PWPq1j6C1AcMuuxWKimVrKEcgY';
+var DRIVE_FOLDER_ID = '10yvv_cMw48PaSBxAH_wvZ_1fnOo1aPWH';
+var NOTIFY_EMAIL    = 'sgpdirector2026@gmail.com';
 
 // Tab GIDs — stable even if tabs are renamed
 var SHEET_GID = {
   contact  : 0,
-  transfer : 1671050477,
-  refill   : 1300104817
+  transfer : 96652872,
+  refill   : 1668760477
 };
 
 function doPost(e) {
