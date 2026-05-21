@@ -1,4 +1,4 @@
-// ── Super Grocer Pharmacy – Form Handler ──────────────────────────────────
+// ── Super Grocer & Pharmacy – Form Handler ──────────────────────────────────
 // Deploy: Extensions → Apps Script → Deploy → New deployment
 //         Type: Web app | Execute as: Me | Who has access: Anyone
 // ─────────────────────────────────────────────────────────────────────────
@@ -37,7 +37,7 @@ function doPost(e) {
     if (data.formType === 'refill') {
       sheet = ss.getSheetById(SHEET_GID.refill);
       row     = [ts, data.firstName, data.lastName, data.phone, data.email || '', data.prescription, attachUrl];
-      subject = '[Super Grocer Pharmacy] Refill Request – ' + data.firstName + ' ' + data.lastName;
+      subject = '[Super Grocer & Pharmacy] Refill Request – ' + data.firstName + ' ' + data.lastName;
       body    = fmt('Refill Prescription Request', {
         'Name'        : data.firstName + ' ' + data.lastName,
         'Phone'       : data.phone,
@@ -49,7 +49,7 @@ function doPost(e) {
     } else if (data.formType === 'transfer') {
       sheet = ss.getSheetById(SHEET_GID.transfer);
       row     = [ts, data.firstName, data.lastName, data.phone, data.email || '', data.currentPharmacy, data.prescription, attachUrl];
-      subject = '[Super Grocer Pharmacy] Transfer Request – ' + data.firstName + ' ' + data.lastName;
+      subject = '[Super Grocer & Pharmacy] Transfer Request – ' + data.firstName + ' ' + data.lastName;
       body    = fmt('Transfer Prescription Request', {
         'Name'            : data.firstName + ' ' + data.lastName,
         'Phone'           : data.phone,
@@ -62,7 +62,7 @@ function doPost(e) {
     } else if (data.formType === 'contact') {
       sheet = ss.getSheetById(SHEET_GID.contact);
       row     = [ts, data.firstName, data.lastName, data.phone || '', data.email, data.message];
-      subject = '[Super Grocer Pharmacy] Contact Message – ' + data.firstName + ' ' + data.lastName;
+      subject = '[Super Grocer & Pharmacy] Contact Message – ' + data.firstName + ' ' + data.lastName;
       body    = fmt('Contact Form', {
         'Name'   : data.firstName + ' ' + data.lastName,
         'Phone'  : data.phone || '—',
@@ -95,6 +95,6 @@ function fmt(title, fields, ts) {
   var lines = title + '\n' + Array(42).join('─') + '\n\n';
   for (var k in fields) lines += k + ': ' + fields[k] + '\n';
   lines += '\nReceived : ' + ts + ' (Pacific Time)';
-  lines += '\nSource   : Super Grocer Pharmacy Website';
+  lines += '\nSource   : Super Grocer & Pharmacy Website';
   return lines;
 }
